@@ -1,0 +1,31 @@
+meta {
+  name: 1. Create Player Dany
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/players
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "pseudo": "Dany",
+      "score": 1000
+  }
+}
+
+tests {
+  test("Status code is 201", function () {
+      expect(res.getStatus()).to.equal(201);
+  });
+  var jsonData = res.getBody();
+  bru.setEnvVar("playerId", jsonData.id);
+  bru.setEnvVar("playerPseudo", jsonData.pseudo);
+}

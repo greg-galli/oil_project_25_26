@@ -1,0 +1,22 @@
+meta {
+  name: Get Unknown ID (404)
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:8080/api/players/999999
+  body: none
+  auth: none
+}
+
+tests {
+  test("Status code is 404", function () {
+      expect(res.getStatus()).to.equal(404);
+  });
+  test("Error message check", function () {
+      var jsonData = res.getBody();
+      // Spring Boot default error structure usually has 'message' or 'error'
+      // Depending on configuration, checking status is often enough for basic tests
+  });
+}

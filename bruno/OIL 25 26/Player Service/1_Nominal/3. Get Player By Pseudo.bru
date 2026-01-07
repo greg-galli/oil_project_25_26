@@ -1,0 +1,17 @@
+meta {
+  name: 3. Get Player By Pseudo
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/api/players/pseudo/{{playerPseudo}}
+  body: none
+  auth: none
+}
+
+tests {
+  test("Status code is 200", function () {
+      expect(res.getStatus()).to.equal(200);
+  });
+}

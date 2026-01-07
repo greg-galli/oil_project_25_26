@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "OIL 25 26",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
