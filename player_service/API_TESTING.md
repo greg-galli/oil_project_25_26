@@ -1,20 +1,26 @@
-# Tests Automatisés avec Newman
+# Tests Automatisés avec Newman & Bruno
 
-Ce projet contient une collection Postman permettant de tester l'API `player_service`.
+Ce projet permet de tester l'API `player_service` via **Postman (Newman)** ou **Bruno (Bru CLI)**.
 
 ## Prérequis
 
 1.  **Node.js** doit être installé.
-2.  Installez **Newman** et le reporter HTML :
+2.  L'application Spring Boot doit être lancée :
     ```bash
-    npm install -g newman newman-reporter-htmlextra
-    ```
-3.  L'application Spring Boot doit être lancée :
-    ```bash
-    ./mvnw spring-boot:run
+    ./gradlew bootRun
     ```
 
+---
+
+## Option A : Tests avec Postman (Newman)
 ## Exécution des tests
+
+### Installation
+
+```bash
+npm install -g newman 
+npm install -g newman-reporter-htmlextra
+```
 
 ### 1. Exécution simple (Console uniquement)
 C'est la méthode la plus simple pour vérifier que tout fonctionne.
@@ -39,4 +45,29 @@ Si vous utilisez GitLab CI, GitHub Actions ou Jenkins :
 
 ```bash
 newman run oil_25_26.postman_collection.json --env-var baseUrl=http://localhost:8080 --bail
+```
+
+---
+
+## Option B : Tests avec Bruno (Bru CLI)
+
+### Installation
+```bash
+npm install -g @usebruno/cli
+```
+
+### Exécution
+Depuis le dossier de qui contient le fichier `bruno.json` :
+
+```bash
+cd bruno/oil_25_26
+```
+
+```bash
+bru run -r --env-var baseUrl=http://localhost:8080
+```
+
+### Sortie JSON (pour CI/CD)
+```bash
+bru run -r --env-var baseUrl=http://localhost:8080 --output json
 ```
