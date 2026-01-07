@@ -1,0 +1,409 @@
+[
+  {
+    "iterationIndex": 0,
+    "results": [
+      {
+        "test": {
+          "filename": "Player Service\\1_Nominal\\1. Create Player Dany.bru"
+        },
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:8080/api/players",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "data": "{\n    \"pseudo\": \"Dany\",\n    \"score\": 1000\n}"
+        },
+        "response": {
+          "status": 201,
+          "statusText": "",
+          "headers": {
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "date": "Wed, 07 Jan 2026 20:55:55 GMT",
+            "keep-alive": "timeout=60",
+            "connection": "keep-alive"
+          },
+          "data": {
+            "id": 7,
+            "pseudo": "Dany",
+            "score": 1000
+          },
+          "url": "http://localhost/api/players",
+          "responseTime": 19
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "Status code is 201",
+            "status": "pass",
+            "uid": "0wAV4iw7uP8BvRtg0UJtb"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.13623,
+        "name": "1. Create Player Dany",
+        "path": "Player Service\\1_Nominal\\1. Create Player Dany",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Player Service\\1_Nominal\\2. Get All Players.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/api/players",
+          "headers": {}
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "headers": {
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "date": "Wed, 07 Jan 2026 20:55:55 GMT",
+            "keep-alive": "timeout=60",
+            "connection": "keep-alive"
+          },
+          "data": [
+            {
+              "id": 1,
+              "pseudo": "Alice",
+              "score": 500
+            },
+            {
+              "id": 2,
+              "pseudo": "Bob",
+              "score": 750
+            },
+            {
+              "id": 3,
+              "pseudo": "Charly",
+              "score": 1000
+            },
+            {
+              "id": 7,
+              "pseudo": "Dany",
+              "score": 1000
+            }
+          ],
+          "url": "http://localhost/api/players",
+          "responseTime": 4
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "Status code is 200",
+            "status": "pass",
+            "uid": "5ksP910IzTu4areqUV7pl"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.0408317,
+        "name": "2. Get All Players",
+        "path": "Player Service\\1_Nominal\\2. Get All Players",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Player Service\\1_Nominal\\3. Get Player By Pseudo.bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/api/players/pseudo/Dany",
+          "headers": {}
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "headers": {
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "date": "Wed, 07 Jan 2026 20:55:55 GMT",
+            "keep-alive": "timeout=60",
+            "connection": "keep-alive"
+          },
+          "data": {
+            "id": 7,
+            "pseudo": "Dany",
+            "score": 1000
+          },
+          "url": "http://localhost/api/players/pseudo/Dany",
+          "responseTime": 4
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "Status code is 200",
+            "status": "pass",
+            "uid": "OPxQuo6MxvLjWW7Zsoiqt"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.0588377,
+        "name": "3. Get Player By Pseudo",
+        "path": "Player Service\\1_Nominal\\3. Get Player By Pseudo",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Player Service\\1_Nominal\\4. Delete Player.bru"
+        },
+        "request": {
+          "method": "DELETE",
+          "url": "http://localhost:8080/api/players/7",
+          "headers": {}
+        },
+        "response": {
+          "status": 204,
+          "statusText": "",
+          "headers": {
+            "date": "Wed, 07 Jan 2026 20:55:55 GMT",
+            "keep-alive": "timeout=60",
+            "connection": "keep-alive"
+          },
+          "data": "",
+          "url": "http://localhost/api/players/7",
+          "responseTime": 3
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "Status code is 204",
+            "status": "pass",
+            "uid": "CIvNhKSu76DKGVF6s85vR"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.0511426,
+        "name": "4. Delete Player",
+        "path": "Player Service\\1_Nominal\\4. Delete Player",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Player Service\\1_Nominal\\5. Get Player By ID (Verify Delete).bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/api/players/7",
+          "headers": {}
+        },
+        "response": {
+          "status": 404,
+          "statusText": "",
+          "headers": {
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "date": "Wed, 07 Jan 2026 20:55:55 GMT",
+            "keep-alive": "timeout=60",
+            "connection": "keep-alive"
+          },
+          "data": {
+            "timestamp": "2026-01-07T20:55:55.475Z",
+            "status": 404,
+            "error": "Not Found",
+            "path": "/api/players/7"
+          },
+          "url": "http://localhost/api/players/7",
+          "responseTime": 4
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "Status code is 404",
+            "status": "pass",
+            "uid": "dsMd6_HF0kK9NZJgV9EWR"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.0465032,
+        "name": "5. Get Player By ID (Verify Delete)",
+        "path": "Player Service\\1_Nominal\\5. Get Player By ID (Verify Delete)",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Player Service\\2_Error Cases\\Get Unknown ID (404).bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/api/players/999999",
+          "headers": {}
+        },
+        "response": {
+          "status": 404,
+          "statusText": "",
+          "headers": {
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "date": "Wed, 07 Jan 2026 20:55:55 GMT",
+            "keep-alive": "timeout=60",
+            "connection": "keep-alive"
+          },
+          "data": {
+            "timestamp": "2026-01-07T20:55:55.522Z",
+            "status": 404,
+            "error": "Not Found",
+            "path": "/api/players/999999"
+          },
+          "url": "http://localhost/api/players/999999",
+          "responseTime": 4
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "Status code is 404",
+            "status": "pass",
+            "uid": "SKFQhcVkittXrdfwMkt2I"
+          },
+          {
+            "description": "Error message check",
+            "status": "pass",
+            "uid": "yTENTJ_mW0NZzJLG2q7FU"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.046707,
+        "name": "Get Unknown ID (404)",
+        "path": "Player Service\\2_Error Cases\\Get Unknown ID (404)",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Player Service\\2_Error Cases\\Delete Unknown ID (404).bru"
+        },
+        "request": {
+          "method": "DELETE",
+          "url": "http://localhost:8080/api/players/999999",
+          "headers": {}
+        },
+        "response": {
+          "status": 404,
+          "statusText": "",
+          "headers": {
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "date": "Wed, 07 Jan 2026 20:55:55 GMT",
+            "keep-alive": "timeout=60",
+            "connection": "keep-alive"
+          },
+          "data": {
+            "timestamp": "2026-01-07T20:55:55.569Z",
+            "status": 404,
+            "error": "Not Found",
+            "path": "/api/players/999999"
+          },
+          "url": "http://localhost/api/players/999999",
+          "responseTime": 5
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "Status code is 404",
+            "status": "pass",
+            "uid": "lDY5uUlKGCZlg64GNSDuX"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.0622426,
+        "name": "Delete Unknown ID (404)",
+        "path": "Player Service\\2_Error Cases\\Delete Unknown ID (404)",
+        "iterationIndex": 0
+      },
+      {
+        "test": {
+          "filename": "Player Service\\2_Error Cases\\Get Unknown Pseudo (404).bru"
+        },
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:8080/api/players/pseudo/UnknownPlayerXYZ",
+          "headers": {}
+        },
+        "response": {
+          "status": 404,
+          "statusText": "",
+          "headers": {
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "date": "Wed, 07 Jan 2026 20:55:55 GMT",
+            "keep-alive": "timeout=60",
+            "connection": "keep-alive"
+          },
+          "data": {
+            "timestamp": "2026-01-07T20:55:55.631Z",
+            "status": 404,
+            "error": "Not Found",
+            "path": "/api/players/pseudo/UnknownPlayerXYZ"
+          },
+          "url": "http://localhost/api/players/pseudo/UnknownPlayerXYZ",
+          "responseTime": 3
+        },
+        "error": null,
+        "status": "pass",
+        "assertionResults": [],
+        "testResults": [
+          {
+            "description": "Status code is 404",
+            "status": "pass",
+            "uid": "0ldR0TzrHxbxu6v3Derm1"
+          }
+        ],
+        "preRequestTestResults": [],
+        "postResponseTestResults": [],
+        "shouldStopRunnerExecution": false,
+        "runDuration": 0.0456063,
+        "name": "Get Unknown Pseudo (404)",
+        "path": "Player Service\\2_Error Cases\\Get Unknown Pseudo (404)",
+        "iterationIndex": 0
+      }
+    ],
+    "summary": {
+      "totalRequests": 8,
+      "passedRequests": 8,
+      "failedRequests": 0,
+      "errorRequests": 0,
+      "skippedRequests": 0,
+      "totalAssertions": 0,
+      "passedAssertions": 0,
+      "failedAssertions": 0,
+      "totalTests": 9,
+      "passedTests": 9,
+      "failedTests": 0,
+      "totalPreRequestTests": 0,
+      "passedPreRequestTests": 0,
+      "failedPreRequestTests": 0,
+      "totalPostResponseTests": 0,
+      "passedPostResponseTests": 0,
+      "failedPostResponseTests": 0
+    }
+  }
+]
