@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Live Game Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <style>
+        body {
+            background-color: #0D0D0D;
+            color: #00FF41;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+        }
+        h1 {
+            border-bottom: 1px solid #00FF41;
+            padding-bottom: 10px;
+        }
+        #status {
+            display: inline-block;
+        }
+        #status::after {
+            content: '█';
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+        #events-container {
+            border: 1px solid #00FF41;
+            padding: 10px;
+            margin-top: 10px;
+            height: 400px;
+            overflow-y: scroll;
+            background-color: #000;
+        }
+        .event {
+            padding: 5px;
+            margin-bottom: 5px;
+            border-radius: 0;
+        }
+        .GAME_START {
+            background-color: #001f00;
+            border-left: 3px solid #00FF41;
+        }
+        .GAME_END {
+            background-color: #001f00;
+            border-left: 3px solid #FF4141;
+        }
+    </style>
+</head>
+<body>
+<h1>CONSOLE GAME DASHBOARD</h1>
+<div id="status">> Connecting...</div>
+<div id="events-container"></div>
+
+<script>
+    var stompClient = null;
+
+    function connect() {
+        var socket = new SockJS('/ws-game');
+        stompClient = Stomp.over(socket);
+
+        stompClient.connect({}, function (frame) {
+            document.getElementById("status").innerText = "> Connected. Waiting for events...";
+
+            stompClient.subscribe('/topic/events', function (message) {
+                showEvent(JSON.parse(message.body));
+            });
+        });
+    }
+
+    function showEvent(event) {
+        var container = document.getElementById("events-container");
+        var div = document.createElement("div");
+        div.className = "event " + event.type;
+        div.innerHTML = "<strong>" + event.timestamp + "</strong> : " + event.message;
+        container.insertBefore(div, container.firstChild);
+    }
+
+    connect();
+</script>
+</body>
+</html>
